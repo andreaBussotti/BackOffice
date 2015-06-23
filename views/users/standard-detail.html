@@ -1,0 +1,187 @@
+<div id="page-wrapper">
+            <br>
+            <ol class="breadcrumb">
+                
+                <li><a href="#/">Home</a></li>
+                <li><a href="#/users-standard">Users</a></li>
+                <li class="active">Single User</li>
+              
+            </ol>
+            
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">{{totanimae}}</div>
+                                    <div>Animae Created</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="panel panel-green">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">{{totmemo}}</div>
+                                    <div>Memo Created</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="panel panel-red">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">{{totpoi}}</div>
+                                    <div>POI Created</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+            <!-- /.row -->
+            
+            <div class="general-description">
+                
+                <div class="row anima-general_data">
+                    
+                    <div class="col-lg-3">
+                        <img src="{{urlphoto}}" ng-if="urlphoto">
+                    </div>
+                
+                    <div class="col-lg-9">
+                        <div class="user-gender"><i class="fa fa-files-o fa-fw anima-general_icon"></i> gender: {{gender}}</div>
+                        <div class="user-name"><i class="fa fa-files-o fa-fw anima-general_icon"></i> {{name}}</div>
+                        <div class="user-mail"> <i class="fa fa-files-o fa-fw anima-general_icon"></i> {{username}}</div>
+                        <div class="user-geo"><i class="fa fa-files-o fa-fw anima-general_icon"></i> {{address}}</div>
+                        <div class="user-access"><i class="fa fa-files-o fa-fw anima-general_icon"></i> tot access: {{totaccess}} - last access: {{last_access}}</div>
+                    </div>
+                </div>
+            </div>
+            
+            <br>
+            
+            
+            <!-- TAG -->
+            
+            <div class="tag-user-wrapper"  >
+            
+				<div class="row">
+					<div class="col-lg-1">Add</div>
+					<div class="col-lg-3"> 
+						<angucomplete id="ex1"
+						  placeholder="Search Tags"
+						  pause="100"
+						  selectedobject="selectedTag"
+						  localdata="tagsList"
+						  searchfields="label"
+						  titlefield="label"
+						  minlength="1"
+						  inputclass="form-control" />			  
+					</div>
+					<div class="col-lg-8"><button type="submit" class="btn btn-success" ng-disabled='!selectedTag' ng-click="addTagUser(selectedTag);">ADD</button></div>
+				</div>
+            
+            
+				<div class="row" style="margin-top:7px;">
+					<div class="col-lg-1">
+						Tags
+					</div>
+					
+					
+					<div class="col-lg-11">
+						
+						<div class="row">
+						<!-- Elenco tags -->
+						
+							<div class="col-lg-11 tag-user-listtag">
+								&nbsp;<button type="button" class="btn btn-xs"  ng-repeat="tag in tags" style="background-color:{{tag.color}}; color:#fff;  font-weight: bold; margin-right:5px;" ng-click="deleteTagUser(tag._id, $index);">{{tag.label}}  <span class="glyphicon glyphicon-remove"></span></button>
+							</div>
+						</div>
+					</div>
+				</div>
+            
+            </div>           
+            
+            <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#animae" data-toggle="tab">Animae</a>
+                                </li>
+                                <!-- li><a href="#memos" data-toggle="tab">Memos</a -->
+                                </li>
+                                
+                            </ul>
+
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div class="tab-pane fade in active" id="animae">
+                                    <br>
+                                    <div class="row">
+                                        <div class="xs-col-12 table-wrapper">
+											<div ui-grid="gridOptions" class="grid" ui-grid-resize-columns></div>                                           
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                               
+                                
+                            </div>
+                            
+                            
+                            
+                            
+                        </div>
+                        <!-- /.panel-body -->
+                
+                 <div class="row">
+					 <div class="col-lg-3 col-md-3"></div>
+					 <div class="col-lg-6 col-md-6" align="center">
+						 
+						 <button class="btn btn-primary" type="button" ng-click="setPermission('letlife.editor')" ng-if="!editor">Set user as editor</p></button>
+						 <button class="btn btn-warning" type="button" ng-click="removePermission('letlife.editor')" ng-if="editor"><span class="glyphicon glyphicon-ban-circle"></span> Remove editor permission</p></button>
+						
+						 <button class="btn btn-danger" type="button" ng-click="delete()"><span class="glyphicon glyphicon-trash"></span> Delete user</p></button>
+					 </div>
+					 <div class="col-lg-3 col-md-3"></div>
+			     </div>   
+			     
+			     <br /><br />
+            
+        </div>
+        <!-- /#page-wrapper -->
+        
+        
+        <script type="text/ng-template" id="deleteTagConfirm">
+		<div class="ngdialog-message">
+			<h3 style="border-bottom:1px solid #ccc; padding-bottom:10px;">Delete Tag</h3>
+			<p>Are you sure you want to DELETE the tag user?</p>
+			
+		</div>
+		<div class="ngdialog-buttons">
+			<button type="button" class="ngdialog-button ngdialog-button-delete" ng-click="confirm(confirmValue)">DELETE</button>
+			<button type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="closeThisDialog('button')">Not Sure</button>
+		</div>
+	</script>

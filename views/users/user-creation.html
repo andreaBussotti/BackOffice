@@ -1,0 +1,137 @@
+<div id="page-wrapper">
+            <br>
+            <ol class="breadcrumb">
+                
+                <li><a href="#/">Home</a>
+                </li>
+                
+                <li class="active">New User</li>
+
+            </ol>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h1>User Editor</h1>
+                            <div ng-hide="!success" align="center"><i class="fa fa-check-circle fa-lg" style="color:green; margin-bottom:10px;"></i>&nbsp;Saved</div>         
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-xs-12">
+                                    <form class="form-horizontal"
+										name='UserForm'
+										ng-submit='Create()'>
+                                        <fieldset>
+
+                                            <!-- Form Name -->
+                                            <legend></legend>
+			
+											 <!-- Text input-->
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="us-first">Name</label>
+                                            <div class="col-md-5">
+                                                <input id="new-user-first" name="new-user-first" type="text" placeholder="Name" class="form-control input-md"
+                                                ng-model='us.first'
+												ng-required=true>
+
+                                            </div>
+                                        </div>
+
+			
+                                            
+                                            <!-- Text input-->
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label" for="new-user-last">Surname</label>
+                                                <div class="col-md-5">
+                                                    <input id="new-user-last" name="new-user-last" type="text" placeholder="User surname" class="form-control input-md"
+                                                    ng-model='us.last'
+													ng-required=true>
+
+                                                </div>
+                                            </div>
+                                            
+
+                                            <!-- Select Basic -->
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label" for="new-memo-gender">Gender</label>
+                                                <div class="col-md-5">
+                                                    <select id="new-user-gender" name="new-user-gender" class="form-control"
+                                                     ng-model='us.gender'
+													 ng-required=true>
+                                                        <option value="">- Choose</option>
+                                                        <option value="m">Male</option>
+                                                        <option value="f">Female</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                             <!-- Text input-->
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label" for="new-user-email">Email</label>
+                                                <div class="col-md-5">
+                                                    <input id="new-user-email" name="new-user-email" type="email" placeholder="Email" class="form-control input-md"
+                                                    ng-model='us.email'
+													ng-required=true>
+
+                                                </div>
+                                            </div>
+
+
+											 <!-- Text input-->
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label" for="new-user-phone">Phone</label>
+                                                <div class="col-md-5">
+                                                    <input id="new-user-phone" name="new-user-phone" type="telephone" placeholder="Phone" class="form-control input-md"
+                                                    ng-model='us.phone'
+													ng-required=true>
+
+                                                </div>
+                                            </div>
+                                            
+                                             <!-- Text input-->
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label" for="new-user-password">Password</label>
+                                                <div class="col-md-5">
+                                                    <input id="new-user-password" name="new-user-password" type="password" placeholder="Password" class="form-control input-md"
+                                                    ng-model='us.password'
+                                                    ng-minlength="6"
+													ng-required=true>
+
+                                                </div>
+                                            </div>
+                                           
+                                           <!-- Select Basic -->
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label" for="new-memo-permission">Permissions</label>
+                                                <div class="col-md-5">
+                                                    <select id="new-user-permission" name="new-user-permission" class="form-control"
+                                                     ng-model='us.permission'>
+                                                        <option value="">- Choose</option>
+                                                        <option value="letlife.editor">Editor</option>
+                                                        <option value="brand.manager">Brand</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                           
+
+                                            <button type="submit" class="btn btn-success" ng-disabled='!UserForm.$valid'>Create User</button>
+
+                                        </fieldset>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+
+                            
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+        <!-- /#page-wrapper -->

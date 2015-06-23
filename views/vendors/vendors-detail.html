@@ -1,0 +1,136 @@
+<div id="page-wrapper">
+            <br>
+            <ol class="breadcrumb">
+                
+                <li><a href="#/">Home</a></li>
+                
+                <li><a href="#/vendors">Vendors</a></li>
+                <li class="active">Single Vendor</li>
+
+            </ol>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h1>Vendor Editor</h1>
+                            <div ng-hide="!success" align="center"><i class="fa fa-check-circle fa-lg" style="color:green; margin-bottom:10px;"></i>&nbsp;Saved</div>         
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-xs-12">
+                                    <form class="form-horizontal"
+										name='VendorsForm'
+										ng-submit='Update()'>
+                                        <fieldset>
+
+                                            <!-- Form Name -->
+                                            <legend></legend>
+			
+											 <!-- Text input-->
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="us-first">Name</label>
+                                            <div class="col-md-5">
+                                                <input id="new-vendor-first" name="new-vendor-first" type="text" placeholder="Name" class="form-control input-md"
+                                                ng-model='VendorName'
+												ng-required=true>
+
+                                            </div>
+                                        </div>
+                                         
+                                            <!-- Text input-->
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label" for="new-user-last">Domain</label>
+                                                <div class="col-md-5">
+                                                    <input id="new-vendor-domain" name="new-vendor-domain" type="text" placeholder="Domain" class="form-control input-md"
+                                                    ng-model='VendorDomain'>
+
+                                                </div>
+                                            </div>                                          
+
+                                            <button type="submit" class="btn btn-success" ng-disabled='!VendorsForm.$valid'>Update Vendor</button>
+
+                                        </fieldset>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+
+			<div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h1>Users Brand Manager</h1>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-xs-12">                               
+                                 
+                                    <table class="table table-hover">
+										<tr ng-repeat="user in users">
+											<td><input type="checkbox" value="{{user._id}}" ng-checked="userChecked.indexOf(user._id) > -1" ng-click="toggleSelection(user._id)"></td><td>{{user.first}} {{user.last}}</td><td>{{user.email}}										
+											</td>
+										</tr>									
+									</table>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+
+                            <button  type="button" class="btn btn-info btn-sm"  ng-click="addUsers()">Add Users</button>
+							<button  type="button" class="btn btn-danger btn-sm" ng-if="userChecked!=''" ng-click="delUsers();">Delete</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- /#page-wrapper -->
+        
+        
+        <script type="text/ng-template" id="selectUsersVedor">
+		<div class="ngdialog-message" >
+			<h3 style="border-bottom:1px solid #ccc; padding-bottom:10px;">ADD USERS</h3>
+			<div class="container_users">
+				 <table class="table table-hover .table-condensed">
+					<thead>
+					  <tr>
+						<th>#</th>
+						<th>Last</th>
+						<th>First</th>
+						<th>Email</th>
+					  </tr>
+					</thead>
+					<tr ng-repeat="user in usersAll">
+						<td><input type="checkbox" value="{{user.id}}" ng-checked="userAllChecked.indexOf(user.id) > -1" ng-click="toggleSelectionUsers(user.id)"  ></td><td>{{user.last}}</td><td>{{user.first}}</td><td>{{user.username}}</td>
+					</tr>
+					
+				</table>
+			</div>
+			<div style="margin:10px; height:30px;">			
+				<button type="button" class="ngdialog-button btn btn-success" ng-disabled="userAllChecked==''" ng-click="saveUsers();">SAVE</button>							
+			</div>
+		</div>
+		
+	</script>
+	
+	
+	<script type="text/ng-template" id="deleteUsersConfirm">
+		<div class="ngdialog-message">
+			<h3 style="border-bottom:1px solid #ccc; padding-bottom:10px;">Delete User Brand</h3>
+			<p>Are you sure you want to DELETE the user brand?</p>
+			
+		</div>
+		<div class="ngdialog-buttons">
+			<button type="button" class="ngdialog-button ngdialog-button-delete" ng-click="confirm(confirmValue)">DELETE</button>
+			<button type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="closeThisDialog('button')">Not Sure</button>
+		</div>
+	</script>

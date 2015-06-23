@@ -1,0 +1,92 @@
+<div id="page-wrapper">
+    <br>
+    <ol class="breadcrumb">
+
+        <li><a href="#/">Home</a>
+        </li>
+        <li class="active" ng-if="!catid">Memo Templates</li>
+		
+		<li class="active" ng-if="catid"><a href="#/memotemplate">Memo Templates</a></li>
+        <li class="active" ng-if="catid">{{category}}</li>
+    </ol>
+
+
+
+
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-3 col-md-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading panel-memo">
+                    <div class="row">
+                        
+                        <div class="col-xs-12 text-right">
+                            <div class="huge">{{totalmemos}}</div>
+                            <div>Total Memo Templates</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+
+            <div class="panel panel-primary panel-grid">
+                <div class="row">
+                    <div class="col-xs-4 grid-element category-text" ><a href="#/memotemplate/category/1">{{cat1}} <div class="num-anime-categoria-x">{{animae1}}</div></a>
+                    </div>
+                    <div class="col-xs-4 grid-element category-text"><a href="#/memotemplate/category/2">{{cat2}} <div class="num-anime-categoria-x">{{animae2}}</div></a>
+                    </div>
+                    <div class="col-xs-4 grid-element category-text"><a href="#/memotemplate/category/3">{{cat3}} <div class="num-anime-categoria-x">{{animae3}}</div></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4 grid-element category-text"><a href="#/memotemplate/category/4">{{cat4}} <div class="num-anime-categoria-x">{{animae4}}</div></a>
+                    </div>
+                    <div class="col-xs-4 grid-element category-text"><a href="#/memotemplate/category/5">{{cat5}} <div class="num-anime-categoria-x">{{animae5}}</div></a>
+                    </div>
+                    <div class="col-xs-4 grid-element category-text"><a href="#/memotemplate/category/6">{{cat6}} <div class="num-anime-categoria-x">{{animae6}}</div></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4 grid-element category-text"><a href="#/memotemplate/category/7">{{cat7}} <div class="num-anime-categoria-x">{{animae7}}</div></a>
+                    </div>
+                    <div class="col-xs-4 grid-element category-text"><a href="#/memotemplate/category/8">{{cat8}} <div class="num-anime-categoria-x">{{animae8}}</div></a>
+                    </div>
+                    <div class="col-xs-4 grid-element category-text"><a href="#/memotemplate/category/9">{{cat9}} <div class="num-anime-categoria-x">{{animae9}}</div></a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-lg-3 col-md-3">
+
+            <div class="panel panel-primary panel-grid">
+                <div class="row" ng-repeat="contentType in contentTypes">
+                    <div class="col-xs-12 grid-element category-text">{{contentType.slotTypeId}}: {{contentType.count}}
+                    </div>
+                    
+                </div>
+                
+            </div>
+
+
+        </div>
+
+    </div>
+    <!-- /.row -->
+
+
+
+    <!--  List   -->
+
+    <div class="row">
+        <div class="xs-col-12 table-wrapper">
+            <div ui-grid="gridOptions" class="grid" ui-grid-resize-columns ui-grid-pagination></div>
+        </div>
+    </div>
+
+
+</div>
+<!-- /#page-wrapper -->

@@ -1,0 +1,189 @@
+<div id="page-wrapper">
+            <br>
+            <ol class="breadcrumb">
+                
+                <li><a href="#/">Home</a>
+                </li>
+                
+                <li class="active">User Tag Editor</li>
+
+            </ol>
+
+             <div class="tag-wrapper">
+
+              <div class="">
+                <div id="tag-text-home">
+                  <h2>Tag Editor</h2>
+                  <p>Choose Tag and edit it OR create new tag and assign users to it.</p>
+                </div>
+              </div>
+
+              <hr>
+
+              <div class="tag-play row">
+                <!--Left Side-->
+                <div class="col-md-4">
+
+                  <div>
+                    <h4>Tag</h4>
+                  </div>
+
+                  <div class="input-group">
+                    <span class="input-group-addon" id="tag-labels-search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+                    <input type="text" class="form-control" placeholder="Search tag by label" aria-describedby="basic-addon1" ng-model="searchTag.label">
+                  </div>
+
+                  <div class="list-container tag-list" ng-init="newtag.label=''; newtag.color=''">
+                    <!-- Lista dei tag  -->
+					<div style="clear: both; margin:3px;" ng-repeat="tag in tags | filter:searchTag" ng-style="tagSelected==tag.id ? {'background-color':'#f5f5f5'} : {'background-color':'#fff'}"><button type="button" class="btn btn-default btn-xs" ng-click="deleteTag(tag.id, $index);"><span class="glyphicon glyphicon-remove"></span></button> <button type="button" class="btn btn-xs" style="background-color:{{tag.color}}; color:#fff;  font-weight: bold;" ng-click="loadUsers(tag.id, $index);">{{tag.label}} ({{tag.count}}) </button></div>
+
+                  </div>
+
+                  <div class="add-tag-modal">
+                    <button  type="button" class="btn btn-success btn-sm" ng-click="addTag()">Add Tag</button>
+                  </div>
+
+
+                </div>
+
+
+                <!--Right Side-->
+                <div class="col-md-8">
+
+                  <div>
+                    <h4>Users</h4>
+                  </div>
+
+                  <div class="input-group">
+                    <span class="input-group-addon" id="tag-users-search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+                    <input type="text" class="form-control" placeholder="Search tag by name" aria-describedby="basic-addon1" ng-model="searchUser">
+                  </div>
+
+                  <div class="list-container tag-users-list">
+					
+					 	<div ng-if="tagSelected!=''">
+							
+							<table class="table table-hover">
+								<tr ng-repeat="user in users | filter:searchUser">
+									<td><input type="checkbox" value="{{user._id}}" ng-checked="userChecked.indexOf(user._id) > -1" ng-click="toggleSelection(user._id)"  ></td><td>{{user.first}} {{user.last}}</td><td>{{user.email}}
+									
+									</td>
+								</tr>
+								
+							</table>
+						</div>
+						
+                  </div>
+
+                  <div class="edit-tag-btn">
+
+                    <button  type="button" class="btn btn-info btn-sm"  ng-click="addUsers()" ng-if="tagSelected!=''">Add Users</button>
+                    <button  type="button" class="btn btn-warning btn-sm" ng-click="editTag(tagSelected)" ng-if="tagSelected!=''">Edit</button>
+                    <button  type="button" class="btn btn-danger btn-sm" ng-if="userChecked!=''" ng-click="delUsers(tagSelected);">Delete</button>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div>
+                
+              </div>
+
+            </div>
+
+
+        </div>
+        <!-- /#page-wrapper -->
+        
+        
+    <script type="text/ng-template" id="tagCreate">
+		<div class="ngdialog-message" >
+			<h3 style="border-bottom:1px solid #ccc; padding-bottom:10px;">{{LABEL_TAG}} Tag</h3>
+			<form class="form-horizontal" name='TagForm' ng-submit="saveTag(ACTION_TAG)" style="margin-top:20px;">
+				
+				<fieldset>
+				 <div class="form-group">
+					<label class="col-md-2 control-label" for="us-first">Name</label>
+					<div class="col-md-10">
+						<input id="tag-label" name="tag-label" type="text" placeholder="Label" class="form-control input-md"
+						ng-model='newtag.label'
+						ng-required=true
+						>
+
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-2 control-label" for="us-first">Color</label>
+					
+					
+					<div class="col-md-10">
+						<div class="tag-color tag-border" ng-class="{ 'tag-border-red' : newtag.color=='#2ecc71' }"><a ng-click="newtag.color='#2ecc71'"><div class="tag-color-indent" style="background-color:#2ecc71; "></div></a></div>								
+						<div class="tag-color tag-border" ng-class="{ 'tag-border-red' : newtag.color=='#3498db' }"><a ng-click="newtag.color='#3498db'"><div class="tag-color-indent" style="background-color:#3498db; "></div></a></div>
+						<div class="tag-color tag-border" ng-class="{ 'tag-border-red' : newtag.color=='#9b59b6' }"><a ng-click="newtag.color='#9b59b6'"><div class="tag-color-indent" style="background-color:#9b59b6; "></div></a></div>
+						<div class="tag-color tag-border" ng-class="{ 'tag-border-red' : newtag.color=='#34495e' }"><a ng-click="newtag.color='#34495e'"><div class="tag-color-indent" style="background-color:#34495e; "></div></a></div>
+						<div class="tag-color tag-border" ng-class="{ 'tag-border-red' : newtag.color=='#16a085' }"><a ng-click="newtag.color='#16a085'"><div class="tag-color-indent" style="background-color:#16a085; "></div></a></div>					
+						
+						<div class="tag-color tag-border" ng-class="{ 'tag-border-red' : newtag.color=='#f39c12' }"><a ng-click="newtag.color='#f39c12'"><div class="tag-color-indent" style="background-color:#f39c12; "></div></a></div>
+						<div class="tag-color tag-border" ng-class="{ 'tag-border-red' : newtag.color=='#e67e22' }"><a ng-click="newtag.color='#e67e22'"><div class="tag-color-indent" style="background-color:#e67e22; "></div></a></div>
+						<div class="tag-color tag-border" ng-class="{ 'tag-border-red' : newtag.color=='#e74c3c' }"><a ng-click="newtag.color='#e74c3c'"><div class="tag-color-indent" style="background-color:#e74c3c; "></div></a></div>
+						<div class="tag-color tag-border" ng-class="{ 'tag-border-red' : newtag.color=='#bdc3c7' }"><a ng-click="newtag.color='#bdc3c7'"><div class="tag-color-indent" style="background-color:#bdc3c7; "></div></a></div>
+						<div class="tag-color tag-border" ng-class="{ 'tag-border-red' : newtag.color=='#7f8c8d' }"><a ng-click="newtag.color='#7f8c8d'"><div class="tag-color-indent" style="background-color:#7f8c8d; "></div></a></div>
+						
+						<input type="hidden" ng-model="newtag.color" ng-required=true>
+					</div>
+				</div>
+			
+				<div class="form-group">
+			
+					<button type="submit" class="ngdialog-button btn btn-success" ng-disabled='!TagForm.$valid'>{{ACTION_TAG}}</button>
+								
+				</div>
+				</fieldset>
+			</form>
+			
+		</div>
+		
+	</script>
+	
+	
+	<script type="text/ng-template" id="deleteTagConfirm">
+		<div class="ngdialog-message">
+			<h3 style="border-bottom:1px solid #ccc; padding-bottom:10px;">Delete Tag</h3>
+			<p>Are you sure you want to DELETE the tag?</p>
+			
+		</div>
+		<div class="ngdialog-buttons">
+			<button type="button" class="ngdialog-button ngdialog-button-delete" ng-click="confirm(confirmValue)">DELETE</button>
+			<button type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="closeThisDialog('button')">Not Sure</button>
+		</div>
+	</script>
+	
+	
+	 <script type="text/ng-template" id="selectUsersTag">
+		<div class="ngdialog-message" >
+			<h3 style="border-bottom:1px solid #ccc; padding-bottom:10px;">ADD USERS</h3>
+			<div class="container_users">
+				 <table class="table table-hover .table-condensed">
+					<thead>
+					  <tr>
+						<th>#</th>
+						<th>Last</th>
+						<th>First</th>
+						<th>Email</th>
+					  </tr>
+					</thead>
+					<tr ng-repeat="user in usersAll">
+						<td><input type="checkbox" value="{{user.id}}" ng-checked="userAllChecked.indexOf(user.id) > -1" ng-click="toggleSelectionUsers(user.id)"  ></td><td>{{user.last}}</td><td>{{user.first}}</td><td>{{user.username}}</td>
+					</tr>
+					
+				</table>
+			</div>
+			<div style="margin:10px; height:30px;">			
+				<button type="button" class="ngdialog-button btn btn-success" ng-disabled="userAllChecked==''" ng-click="saveUsers(tagSelected);">SAVE</button>							
+			</div>
+		</div>
+		
+	</script>
+

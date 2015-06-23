@@ -1,0 +1,103 @@
+<div id="page-wrapper">
+            <br>
+            <ol class="breadcrumb">
+              <li><a href="#/">Home</a></li>
+                <li class="active">All Users</li>
+
+            </ol>
+
+
+
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">{{totusers}}</div>
+                                    <div>Total Users</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-green">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">{{verifiedusers}}</div>
+                                    <div>Verified Users</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-red">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">{{deletedusers}}</div>
+                                    <div>Deleted Users</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-yellow">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">{{access}} </div>
+                                    <div>Access Frequency</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+
+            <hr>
+				<div class="row" style="margin-bottom:15px;">
+					<div class="xs-col-3 col-md-3 col-lg-3">
+						<input ng-model='filterValue' ng-keypress="$event.keyCode == 13 && filter()" class="form-control input-md" placeholder="search over name or email">
+					</div>
+					<div class="xs-col-2 col-md-2 col-lg-2" style="margin-bottom:15px;">
+						<button ng-click="filter()" class="btn btn-success btn-sm">Filter</button>
+					</div>
+				</div>
+
+            <!--  List   -->
+
+            <div class="row">
+
+
+
+                <div class="xs-col-12 table-wrapper">
+                   <div ui-grid="gridOptions" class="grid" ui-grid-resize-columns ui-grid-pagination></div>
+
+                </div>
+            </div>
+
+        </div>
+        <!-- /#page-wrapper -->

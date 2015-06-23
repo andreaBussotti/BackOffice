@@ -1,0 +1,148 @@
+ <div id="page-wrapper">
+            <br>
+            <ol class="breadcrumb">
+                
+                <li><a href="#/">Home</a></li>
+                <li><a href="#/animae-free">Animae</a></li>
+                <li class="active">Single Anima</li>
+              
+            </ol>
+            
+             <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-4 col-md-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">{{totmemo}}</div>
+                                    <div>Memo Created</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <div class="panel panel-green">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">{{totaccess}}</div>
+                                    <div>N. Access</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <div class="panel panel-red">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">{{last_access}}</div>
+                                    <div>Last Access</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+            <!-- /.row -->
+            
+            
+            <div class="general-description">
+<!--
+                <div class="row general-description-header">
+
+                    <div class="col-xs-6 col-md-6 col-lg-3 general-description-element general-description-image">
+                        <img src="https://placeimg.com/200/200/any">
+                    </div>
+                    <div class="col-xs-6 col-md-6 col-lg-2 general-description-element text-right">
+                        <div class="huge">198</div>
+                        <div>Memo Created</div>
+                    </div>
+                    <div class="col-xs-6 col-md-6 col-lg-3 general-description-element text-right">
+                        <div class="huge">2000</div>
+                        <div>N. Access</div>
+                    </div>
+                    <div class="col-xs-6 col-md-6 col-lg-4 general-description-element text-right">
+                        <div class="huge date">26/12/2015</div>
+                        <div>Last Access</div>
+                    </div>
+                </div>
+-->
+                
+                
+                
+                <div class="row anima-general_data">
+                    <div class="col-lg-3 col-md-3 col-xs-12">
+                            <img src="{{urlphoto}}" ng-if="urlphoto">
+                        </div>
+                    <div class="col-lg-9 col-md-9 col-xs-12">
+                        
+                            <div class="anima-user_name"><i class="fa fa-files-o fa-fw anima-general_icon"></i> {{username}}</div>
+                            <div class="anima-name"><i class="fa fa-files-o fa-fw anima-general_icon"></i> {{name}}</div>
+                            <div class="anima-category"> <i class="fa fa-files-o fa-fw anima-general_icon"></i> {{category}}</div>
+                            <div class="anima-active"><i class="fa fa-files-o fa-fw anima-general_icon"></i> Active {{active}}</div>
+                            <div class="anima-poi"><i class="fa fa-files-o fa-fw anima-general_icon"></i> POI Address {{poi_address}}</div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <br>
+            
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header"><b>Memo</b> - anima related memos</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            
+            <div class="row">
+                <div class="xs-col-12 table-wrapper">
+					<div ui-grid="gridOptions" class="grid" ui-grid-resize-columns></div>
+					<!--
+                    <div class="table-responsive">
+                        <table class="table table-bordered"
+                               data-toggle="table"
+                               data-sort-name="stargazers_count"
+                               data-sort-order="desc"
+                               data-search="true"
+                               data-show-refresh="true"
+                               data-show-toggle="true"
+                               data-show-columns="true">
+                            <thead>
+                                <tr>
+                                    <th data-field="anima-memo-ID" data-sortable="true">ID</th>
+                                    <th data-field="anima-memo-name" data-sortable="true">Name </th>
+                                    <th data-field="anima-memo-type" data-sortable="true">Type </th>
+                                    <th data-field="anima-memo-slot" data-sortable="true">Slot Type </th>
+                                    <th data-field="anima-memo-trigger" data-sortable="true">Trigger Type</th>
+                                    <th data-field="anima-memo-notification" data-sortable="true">Notification</th>
+                                    <th data-field="anima-memo-viz" data-sortable="true">Visualization</th>
+                                    
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    -->
+                </div>
+            </div>
+            
+            
+        </div>
+        <!-- /#page-wrapper -->

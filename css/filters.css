@@ -1,0 +1,38 @@
+.block-filters{
+    padding-top: 20px;
+}
+
+.block-filters-container{
+    padding: 10px !important;
+}
+
+.block-filters-container h2{
+    font-size: 1.4em;
+}
+
+.block-filters-container p{
+    font-size: 0.8em;
+    padding-top: 10px
+}
+
+.block-filters-container hr{
+    margin: 10px 0;
+}
+
+.choose-filter{
+    padding: 10px 0;
+}
+
+.and{
+    font-size: 0.8em;
+    color: gray;
+    padding: 0 16px;
+}
+
+.not-choose-filter{
+    margin-top: 30px;
+}
+
+.not-choose-filter .and:first-of-type{
+    padding-left: 0;
+}

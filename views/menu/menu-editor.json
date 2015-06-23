@@ -1,0 +1,41 @@
+{
+	"items":
+		[
+			{
+			   "title":"Dashboard",
+			   "class":"fa fa-dashboard fa-fw",
+			   "link":"#",
+			   "sub":[]
+			},
+			{
+			   "title":"Vendors",
+			   "class":"fa fa-files-o fa-fw",
+			   "link":"#",
+			   "sub":[{"title":"All", "link":"#/vendors"},{"title":"Create","link":"#/vendors/create"}]
+			},
+			{
+			   "title":"Users",
+			   "class":"fa fa-files-o fa-fw",
+			   "link":"#",
+			   "sub":[{"title":"All", "link":"#/users-standard"},{"title":"Create","link":"#/users-standard/create"},{"title":"Tag Editor","link":"#/users-standard/tag-editor"}]
+			},
+			{
+			   "title":"Animae",
+			   "class":"fa fa-files-o fa-fw",
+			   "link":"#",
+			   "sub":[{"title":"Free", "link":"#/animae-free"},{"title":"Commercial","link":"#"}]
+			},
+			{
+			   "title":"Notification",
+			   "class":"fa fa-files-o fa-fw",
+			   "link":"#",
+			   "sub":[{"title":"All", "link":"#/notification"},{"title":"Create","link":"#/notification/create"}]
+			},
+			{
+			   "title":"Memo Templates",
+			   "class":"fa fa-files-o fa-fw",
+			   "link":"#",
+			   "sub":[{"title":"All", "link":"#/memotemplate"},{"title":"Create","link":"#/memotemplate/create"}]
+			}
+		]
+}
